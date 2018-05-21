@@ -1,18 +1,16 @@
-# Installing the IgH EtherCAT master 1.5.2
-
-Download the ethercat master source files:
+## Download the ethercat master source files:
 
 $ wget http://www.etherlab.org/download/ethercat/ethercat-1.5.2.tar.bz2
 
 $ tar xjf ethercat-1.5.2.tar.bz2
 
-# Get Ethernet infomation
+## Get Ethernet infomation
 
 $ sudo lspci -v 
 
 $ cd ./ethercat-1.5.2/
 
-$ ./configure --disable-8139too --enable-e1000
+$ ./configure --disable-8139too --enable-e1000e
 
 $ make
 
@@ -40,7 +38,7 @@ In the file, enter the Ethernet devices Mac address in the MASTER0_DEVICE variab
 
 	DEVICE_MODULES="e1000e"
 
-# The EtherCAT master service can now be started, restarted and stopped using: 
+## The EtherCAT master service can now be started, restarted and stopped using: 
 
 sudo /etc/init.d/ethercat start
 
@@ -49,7 +47,7 @@ sudo /etc/init.d/ethercat restart
 sudo /etc/init.d/ethercat stop
 
 
-# To run the service without root, a rule file has to be created*: 
+## To run the service without root, a rule file has to be created*: 
 
 cd /etc/udev/rules.d/
 
@@ -61,7 +59,7 @@ In the file add the line: “KERNEL==“EtherCAT[0-9]* “ , MODE=”0664” , G
 
 echo 'KERNEL=="EtherCAT[0-9]*" , MODE="0664" , GROUP = "users"' | sudo tee /etc/udev/rules.d/98-EtherCAT.rules
 
-# Start EtherCAT master at startup
+## Start EtherCAT master at startup
 
 sudo chmod a+x /etc/init.d/ethercat
 
