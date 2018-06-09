@@ -7,8 +7,10 @@ $ tar xjf ethercat-1.5.2.tar.bz2
 ## Get Ethernet infomation
 
 $ sudo lspci -v 
-
-$ cd ./ethercat-1.5.2/
+	
+	Example: My network is Intel Pro/100, Kernel driver in use: e1000e
+	
+$ cd ethercat-1.5.2/
 
 $ ./configure --disable-8139too --enable-e1000e
 
@@ -26,9 +28,9 @@ $ sudo /sbin/depmod
 
 $ sudo mkdir /etc/sysconfig
 
-$ sudo cp scripts/sysconfig/ethercat /etc/sysconfig
+$ sudo cp script/sysconfig/ethercat /etc/sysconfig
 
-$ sudo cp scripts/init.d/ethercat /etc/init.d/ethercat
+$ sudo cp script/init.d/ethercat /etc/init.d/ethercat
 
 $ sudo nano /etc/sysconfig/ethercat
 
@@ -39,6 +41,8 @@ In the file, enter the Ethernet devices Mac address in the MASTER0_DEVICE variab
 	DEVICE_MODULES="e1000e"
 
 ## The EtherCAT master service can now be started, restarted and stopped using
+
+sudo chmod a+x /etc/init.d/ethercat
 
 sudo /etc/init.d/ethercat start
 
@@ -63,8 +67,6 @@ In the file add the line: “KERNEL==“EtherCAT[0-9]* “ , MODE=”0664” , G
 echo 'KERNEL=="EtherCAT[0-9]*" , MODE="0664" , GROUP = "users"' | sudo tee /etc/udev/rules.d/98-EtherCAT.rules
 
 ## Start EtherCAT master at startup
-
-sudo chmod a+x /etc/init.d/ethercat
 
 sudo update-rc.d ethercat start 51 S .
 
