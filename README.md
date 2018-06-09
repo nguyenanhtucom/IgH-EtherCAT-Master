@@ -10,6 +10,7 @@ $ sudo lspci -v
 	
 	Example: My network is Intel Pro/100, Kernel driver in use: e1000e
 	
+## Build
 $ cd ethercat-1.5.2/
 
 $ ./configure --disable-8139too --enable-e1000e
