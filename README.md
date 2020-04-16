@@ -1,12 +1,10 @@
 ## Download the ethercat master source files
 
-$ hg clone http://hg.code.sf.net/p/etherlabmaster/code etherlabmaster-code
+$ hg clone http://hg.code.sf.net/p/etherlabmaster/code ethercat-hg
 
-or
+$ cd ethercat-hg
 
-$ wget http://www.etherlab.org/download/ethercat/ethercat-1.5.2.tar.bz2
-
-$ tar xjf ethercat-1.5.2.tar.bz2
+$ hg update stable-1.5 (Check new version at https://sourceforge.net/projects/etherlabmaster/)
 
 ## Get Ethernet infomation
 
@@ -15,7 +13,9 @@ $ sudo lspci -v
 	Example: My network is Intel Pro/100, Kernel driver in use: e1000e
 	
 ## Build
-$ cd ethercat-1.5.2/
+$ cd ethercat-hg
+
+$  ./boostrap
 
 $ ./configure --disable-8139too --enable-e1000e --with-e1000e-kernel
 
