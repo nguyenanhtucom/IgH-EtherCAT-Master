@@ -17,7 +17,7 @@ $ cd ethercat-hg
 
 $  ./boostrap
 
-$ ./configure --disable-8139too --enable-e1000e --with-e1000e-kernel
+$ ./configure --disable-8139too --enable-e1000e 
 
 $ make
 
