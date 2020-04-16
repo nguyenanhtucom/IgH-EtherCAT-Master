@@ -13,7 +13,7 @@ $ sudo lspci -v
 ## Build
 $ cd ethercat-1.5.2/
 
-$ ./configure --disable-8139too --with-e1000e-kernel (Kernel version > 3.4)
+$ ./configure --disable-8139too --with-e1000e-kernel
 
 $ make
 
