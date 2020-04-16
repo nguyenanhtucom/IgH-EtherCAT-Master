@@ -1,5 +1,9 @@
 ## Download the ethercat master source files
 
+$ hg clone http://hg.code.sf.net/p/etherlabmaster/code etherlabmaster-code
+
+or
+
 $ wget http://www.etherlab.org/download/ethercat/ethercat-1.5.2.tar.bz2
 
 $ tar xjf ethercat-1.5.2.tar.bz2
